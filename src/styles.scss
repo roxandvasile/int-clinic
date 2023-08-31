@@ -1,0 +1,287 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none; 
+  overflow: hidden;
+}
+
+// Form Style
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+
+  .imageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    img {
+      margin-bottom: 10px;
+    }
+
+    input[type='file'] {
+      display: none;
+    }
+
+    .fileLabel {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-weight: 500;
+      border-radius: 5px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+
+    .example-full-width {
+      width: 100%;
+      margin-bottom: 0px;
+
+      .example-full-width {
+        width: 100%;
+        margin-bottom: 5px;
+      }
+    }
+    .actions {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
+
+// Admin Component Style
+.main-container {
+  &__add-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:0 30px;
+
+    .home-button{
+      margin-top:30px;
+    }
+
+    #add-button {
+      color: white;
+      background-color: rgb(28, 176, 28);
+      margin-top: 30px;
+    }
+  }
+
+  mat-form-field {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .table {
+    width: 100%;
+    margin-top: 30px;
+
+    #thColumn,
+    &__element-row td {
+      text-align: left;
+    }
+
+    .mat-sort-header-container {
+      padding-left: 10px;
+    }
+
+    &__element-row td {
+      padding-left: 26px;
+      border-bottom-width: 0;
+      text-align: left;
+    }
+
+    &__expanded__element {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &__image {
+        border: 2px solid rgb(225, 223, 223);
+        padding: 8px;
+        margin: 8px 0 8px 50px;
+        min-width: 80px;
+        height: 104px;
+      }
+
+      &__description {
+        padding: 16px;
+        max-width: 50%;
+        text-align: justify;
+      }
+
+      &__edit-delete {
+        #delete-button {
+          margin-left: 10px;
+        }
+      }
+    }
+
+    &__detail-row {
+      height: 0;
+    }
+
+    &__element-row:not(.example-expanded-row):hover {
+      background: whitesmoke;
+    }
+
+    &__element-row:not(.example-expanded-row):active {
+      background: #efefef;
+    }
+
+    #no-data {
+      text-align: center;
+      font-size: 24px;
+      padding: 20px 0;
+    }
+  }
+
+  mat-paginator {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: sticky;
+    bottom: 0;
+  }
+
+}
+
+.spinner-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+//Stepper Component
+.filter-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+
+  #filter {
+    width: 400px;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 9px;
+
+  &__cards {
+    max-width: 350px;
+    min-width: 200px;
+    min-height: 200px;
+    border-radius: 10px;
+    flex-basis: 100%;
+    margin: 30px 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important;
+
+    &:hover {
+      transform: translateY(-7px);
+      box-shadow: rgb(63,81,181) 0px 5px 15px !important;
+      cursor: pointer;
+    }
+
+    &.active {
+      outline: 3px solid rgb(63,81,181);
+    }
+
+    &__header {
+      display: flex;
+      align-self: center;
+    }
+
+    &__description {
+      margin-top: 15px;
+      line-height: 25px !important;
+
+      #description-detail {
+        overflow-wrap: break-word;
+      }
+    }
+  }
+
+  mat-card-subtitle{
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+}
+
+//Navbar
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+
+    li {
+      display: inline-block;
+      margin-right: 20px;
+
+      a {
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+        color: gray;
+
+        &.activeNav {
+          color: rgb(63,81,181);
+        }
+      }
+  }
+
+  .right-menu {
+    display: flex;
+    align-items: center;
+
+    a,
+    .user-profile {
+      display: flex;
+      align-items: center;
+      color: gray;
+      font-size: 16px;
+      text-decoration: none;
+
+
+      .login-icon {
+        font-size: 35px;
+        height: 33px;
+        width: 33px;
+      }
+    }
+
+    .user-profile {
+      margin-right: 20px;
+
+      .username {
+        margin-right: 5px;
+      }
+    }
+  }
+}

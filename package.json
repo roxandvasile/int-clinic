@@ -1,0 +1,53 @@
+{
+  "name": "clinic-internship-app",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --open",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "pre-commit": "lint-staged"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.1.0",
+    "@angular/cdk": "16.1.5",
+    "@angular/common": "^16.1.0",
+    "@angular/compiler": "^16.1.0",
+    "@angular/core": "^16.1.0",
+    "@angular/fire": "7.6.1",
+    "@angular/forms": "^16.1.0",
+    "@angular/material": "16.1.5",
+    "@angular/platform-browser": "^16.1.0",
+    "@angular/platform-browser-dynamic": "^16.1.0",
+    "@angular/router": "^16.1.0",
+    "@types/pdfmake": "^0.2.2",
+    "ivy.angular.material.file-uploader": "^2.0.0",
+    "pdfmake": "^0.2.7",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.1.4",
+    "@angular-eslint/builder": "16.0.3",
+    "@angular-eslint/eslint-plugin": "16.0.3",
+    "@angular-eslint/eslint-plugin-template": "16.0.3",
+    "@angular-eslint/schematics": "16.0.3",
+    "@angular-eslint/template-parser": "16.0.3",
+    "@angular/cli": "~16.1.4",
+    "@angular/compiler-cli": "^16.1.0",
+    "@typescript-eslint/eslint-plugin": "5.59.7",
+    "@typescript-eslint/parser": "5.59.7",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "prettier-eslint": "^15.0.1",
+    "typescript": "~5.1.3"
+  },
+  "lint-staged": {
+    "projects/**/*.{html, scss}": "prettier --write",
+    "projects/**/*.{ts, html}": "eslint --fix"
+  }
+}

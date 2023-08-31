@@ -1,0 +1,55 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="specialtyForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nume</mat-label>
+
+      <input matInput type="text" formControlName="name" required placeholder="Specializare" />
+
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-select
+        name="service"
+        formControlName="serviceIds"
+        placeholder="Servicii: (alege unul sau mai multe)"
+        multiple
+        [required]="false">
+        <mat-option *ngFor="let service of services" [value]="service.id">{{ service.name }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descriere</mat-label>
+
+      <textarea
+        matInput
+        formControlName="description"
+        required
+        rows="3"
+        cols="50"
+        placeholder="Descriere Specializare"></textarea>
+
+      <mat-icon matSuffix>notes</mat-icon>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-stroked-button color="warn" type="button" (click)="confirmCancelDialog()">Închide</button>
+
+      <button mat-stroked-button color="basic" type="button" (click)="confirmResetDialog()">Resetează</button>
+
+      <button mat-stroked-button color="primary" *ngIf="editRoute" (click)="updateSpecialty()">
+        Actualizează Specialitate
+      </button>
+
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngIf="!editRoute"
+        (click)="addSpecialty()"
+        [disabled]="!specialtyForm.valid">
+        Adaugă Specialitate
+      </button>
+    </div>
+  </form>
+</div>

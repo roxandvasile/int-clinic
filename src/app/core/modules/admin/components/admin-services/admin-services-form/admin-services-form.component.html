@@ -1,0 +1,43 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="servicesForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nume</mat-label>
+      <input matInput type="text" formControlName="name" required placeholder="Specializare" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Preț</mat-label>
+      <input type="number" matInput formControlName="price" required />
+      <mat-icon matSuffix>sell</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descriere</mat-label>
+      <textarea
+        matInput
+        formControlName="description"
+        required
+        rows="3"
+        cols="50"
+        placeholder="Descriere Specializare"></textarea>
+      <mat-icon matSuffix>notes</mat-icon>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-stroked-button color="warn" type="button" (click)="confirmCancelDialog()">Închide</button>
+      <button mat-stroked-button color="basic" type="button" (click)="confirmResetDialog()">Resetează</button>
+      <button mat-stroked-button color="primary" *ngIf="editRoute" (click)="updateService()">
+        Actualizează serviciu
+      </button>
+      <button
+        mat-stroked-button
+        color="primary"
+        *ngIf="!editRoute"
+        (click)="addService()"
+        [disabled]="!servicesForm.valid">
+        Adaugă serviciu
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "int-clinic": {
+      "hosting": {
+        "clinic-internship-app": [
+          "int-clinic"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "int-clinic"
+  }
+}

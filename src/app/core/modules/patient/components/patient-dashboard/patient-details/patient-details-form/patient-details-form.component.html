@@ -1,0 +1,36 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+    <div class="imageContainer">
+      <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagine Pacient Neincarcata" width="50%" height="50%" />
+      <label for="fileInput" class="fileLabel"> Incarca o imagine </label>
+      <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" formControlName="imageUrl" id="fileInput" />
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nume</mat-label>
+      <input matInput formControlName="firstName" placeholder="Nume" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Prenume</mat-label>
+      <input matInput formControlName="lastName" placeholder="Prenume" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <div class="filter">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefon</mat-label>
+        <input type="tel" matInput placeholder="0712 345 678" formControlName="phone" />
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="patientForm.get('phone')?.hasError('pattern')">Telefon Invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-stroked-button color="warn" type="button" (click)="confirmCancelDialog()">Inchide</button>
+      <button mat-stroked-button color="basic" type="button" (click)="confirmResetDialog()">Reseteaza</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!patientForm.valid">Actualizeaza</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,128 @@
+<mat-stepper labelPosition="bottom" linear #stepper>
+  <mat-step [completed]="!specialtyMatDisabled">
+    <ng-template matStepLabel>Alege Specializarea</ng-template>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        matStepperNext
+        (click)="initializeClinicComponent()"
+        [disabled]="specialtyMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-specialty (hasSelection)="specialtyPicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!clinicMatDisabled">
+    <ng-template matStepLabel>Alege Clinica</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        mat-raised-button
+        color="primary"
+        matStepperNext
+        (click)="initializeServiceComponent()"
+        [disabled]="clinicMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-clinic (hasSelection)="clinicPicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!serviceMatDisabled">
+    <ng-template matStepLabel>Alege Serviciu</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        mat-raised-button
+        color="primary"
+        matStepperNext
+        (click)="initializeDoctorComponent()"
+        [disabled]="serviceMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-service (hasSelection)="servicePicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!doctorMatDisabled">
+    <ng-template matStepLabel>Alege Doctor</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        mat-raised-button
+        color="primary"
+        matStepperNext
+        (click)="initializeDateComponent()"
+        [disabled]="doctorMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-doctor (hasSelection)="doctorPicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!dateMatDisabled">
+    <ng-template matStepLabel>Alege ora programării</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        mat-raised-button
+        color="primary"
+        matStepperNext
+        (click)="initializeCompleteDetailsComponent()"
+        [disabled]="dateMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-date (hasSelection)="datePicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!patientMatDisabled">
+    <ng-template matStepLabel>Detalii Personale</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        (click)="initializeExtraComponent(); submitDetailsForm()"
+        matStepperNext
+        [disabled]="patientMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-complete-details (hasSelection)="patientDetailsPicked($event)" />
+  </mat-step>
+
+  <mat-step [completed]="!extraMatDisabled">
+    <ng-template matStepLabel>Informații suplimentare</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="initializeConfirmationComponent()"
+        matStepperNext
+        [disabled]="extraMatDisabled">
+        Înainte
+      </button>
+    </div>
+    <app-choose-extra (hasSelection)="extraPicked($event)" />
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Detaliile programării</ng-template>
+    <div>
+      <button mat-raised-button matStepperPrevious>Înapoi</button>
+      <button mat-raised-button color="primary" (click)="postAppointment(); stepper.next()">Confirmă</button>
+      <button mat-raised-button color="warn" (click)="resetStates()">Resetează</button>
+    </div>
+    <app-confirmation-details></app-confirmation-details>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>Success</ng-template>
+    <app-successful-appointment />
+  </mat-step>
+</mat-stepper>

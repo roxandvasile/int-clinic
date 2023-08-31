@@ -1,0 +1,21 @@
+<div class="information">
+  <div class="information__header">
+    <h3>Informațiile dumneavoastră:</h3>
+    <button mat-stroked-button routerLink="../edit">Editează</button>
+  </div>
+  <mat-card class="details-card">
+    <div class="details-card__text">
+      <h4>Nume și prenume:</h4>
+      <p class="light-text">{{ user?.displayName }}</p>
+      <h4>Telefon:</h4>
+      <p class="light-text">{{ user?.phone }}</p>
+      <h4>Email:</h4>
+      <p class="light-text">{{ user?.email }}</p>
+      <h4>Gen</h4>
+      <p>{{ user?.gender }}</p>
+    </div>
+    <div class="details-card__img">
+      <img src="{{ user?.imageUrl }}" alt="" />
+    </div>
+  </mat-card>
+</div>

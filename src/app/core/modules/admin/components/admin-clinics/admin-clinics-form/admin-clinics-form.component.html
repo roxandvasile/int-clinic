@@ -1,0 +1,78 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="clinicForm" (ngSubmit)="onSubmit()">
+    <div class="imageContainer">
+      <img *ngIf="clinicImage" [src]="clinicImage" alt="Imagine Clinica Neincarcata" width="50%" height="50%" />
+      <label for="fileInput" class="fileLabel"> Incarca o imagine </label>
+      <input type="file" (change)="uploadImage($event)" accept=".png,.jpg" formControlName="imageUrl" id="fileInput" />
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nume</mat-label>
+      <input matInput formControlName="name" placeholder="Nume Clinică" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <div class="filter">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telefon</mat-label>
+        <input type="tel" matInput placeholder="0712 345 678" formControlName="phone" />
+        <mat-icon matSuffix>mode_edit</mat-icon>
+        <mat-error *ngIf="clinicForm.get('phone')?.hasError('pattern')">Telefon Invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Introduceți Emailul</mat-label>
+      <input type="email" matInput placeholder="nume@mail.com" required formControlName="email" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+      <mat-error *ngIf="clinicForm.get('email')?.hasError('pattern')">Email Invalid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Specializare</mat-label>
+      <mat-select
+        name="specialty"
+        formControlName="specialtyIds"
+        placeholder="Specializare: (alege una sau mai multe)"
+        multiple
+        [required]="true"
+        (selectionChange)="onSpecialtiesSelectionChange($event.value)">
+        <mat-option *ngFor="let specialty of specialties" [value]="specialty.id">{{ specialty.name }} </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Doctori</mat-label>
+      <mat-select
+        name="doctors"
+        formControlName="doctorIds"
+        placeholder="Doctori: (alege unul sau mai mulți)"
+        multiple
+        [required]="true">
+        <mat-option *ngFor="let doctor of clinicDoctors" [value]="doctor.id" [disabled]="!isSpecialtiesCompleted">
+          {{ doctor.firstName + ' ' + doctor.lastName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Adresă</mat-label>
+      <textarea matInput placeholder="Ex. Str. Verde nr. 11" formControlName="address"></textarea>
+      <mat-icon matSuffix>roofing</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Descriere Clinică</mat-label>
+      <textarea matInput placeholder="Descriere Clinică" formControlName="description" rows="3" cols="50"></textarea>
+      <mat-icon matSuffix>notes</mat-icon>
+    </mat-form-field>
+
+    <div class="actions">
+      <button mat-stroked-button color="warn" type="button" (click)="confirmCancelDialog()">Închide</button>
+      <button mat-stroked-button color="basic" type="button" (click)="confirmResetDialog()">Resetează</button>
+      <button mat-stroked-button color="primary" type="submit" [disabled]="!clinicForm.valid">
+        {{ buttonText }}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<main class="container" [formGroup]="extraDetailsForm">
+  <div class="container__text-input">
+    <h3>Informații suplimentare</h3>
+    <mat-form-field class="example-full-width">
+      <mat-label>Descriere programare</mat-label>
+      <textarea matInput formControlName="comment" rows="3" cols="50" placeholder="Mesajul tău"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="container__file-input">
+    <div class="container__file-input__content">
+      <h3>Adăugați fișiere</h3>
+      <label for="file-upload" class="custom-file-upload">Alege Document</label>
+      <input id="file-upload" class="example-full-width" type="file" accept=".pdf" (change)="uploadFile($event)" />
+      <a [href]="fileUrl" target="_blank">{{ fileName }}</a>
+    </div>
+  </div>
+</main>

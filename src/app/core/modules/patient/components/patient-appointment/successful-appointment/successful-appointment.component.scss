@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  &__check-circle {
+    height: 100%;
+    width: auto;
+    font-size: 120px; 
+    color: green;
+  }
+  &__content {
+    text-align: center;
+    &__actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+<div class="form-container">
+  <form class="example-form" [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nume</mat-label>
+      <input matInput formControlName="displayName" placeholder="Nume Pacient" />
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Telefon</mat-label>
+      <input type="tel" matInput placeholder="0712 345 678" formControlName="phone" />
+      <mat-icon matSuffix>mode_edit</mat-icon>
+      <mat-error *ngIf="patientForm.get('phone')?.hasError('pattern')">Telefon Invalid</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Introduceți Emailul</mat-label>
+      <input type="email" matInput placeholder="nume@mail.com" required formControlName="email" />
+      <mat-icon matSuffix>alternate_email</mat-icon>
+      <mat-error *ngIf="patientForm.get('email')?.hasError('pattern')">Email Invalid</mat-error>
+    </mat-form-field>
+
+    <mat-radio-group formControlName="gender">
+      <mat-error *ngIf="patientForm.get('gender')?.hasError('required')">*</mat-error>
+      <mat-radio-button value="Masculin">Masculin</mat-radio-button>
+      <mat-radio-button value="Feminin">Feminin</mat-radio-button>
+      <mat-radio-button value="Altul">Altul</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="submit">
+      <button mat-stroked-button color="primary" type="submit">Confirmă</button>
+    </div>
+  </form>
+</div>

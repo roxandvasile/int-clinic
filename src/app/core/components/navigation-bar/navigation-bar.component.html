@@ -1,0 +1,54 @@
+<mat-toolbar>
+  <ul>
+    <li><a routerLink="" routerLinkActive="activeNav" [routerLinkActiveOptions]="{ exact: true }">Acasă</a></li>
+    <li *ngIf="isAdmin"><a routerLink="admin" routerLinkActive="activeNav">Admin</a></li>
+    <li *ngIf="!loggedUser || isPatient">
+      <a routerLink="patient/dashboard/current" routerLinkActive="activeNav">Pacient</a>
+    </li>
+    <li *ngIf="!loggedUser || isDoctor">
+      <a routerLink="doctor/dashboard/current" routerLinkActive="activeNav">Doctor</a>
+    </li>
+  </ul>
+
+  <div class="right-menu">
+    <div *ngIf="!loggedUser">
+      <button mat-button [matMenuTriggerFor]="menu1">
+        <mat-icon clasa="login-icon">account_circle </mat-icon>
+      </button>
+
+      <mat-menu #menu1="matMenu">
+        <button mat-menu-item routerLink="login">
+          <mat-icon clasa="login-icon">account_circle </mat-icon>
+          Login
+        </button>
+
+        <button mat-menu-item routerLink="sign-up">
+          <mat-icon class="login-icon">account_circle </mat-icon>
+          SignUp
+        </button>
+      </mat-menu>
+    </div>
+
+    <div class="user-profile" *ngIf="loggedUser">
+      <span class="username"></span>
+      <button mat-button [matMenuTriggerFor]="menu2">
+        Bine ai venit,
+        {{ loggedUser.displayName }}
+        <mat-icon class="login-icon">account_circle </mat-icon>
+      </button>
+
+      <mat-menu #menu2="matMenu">
+        <a
+          [routerLink]="isPatient ? 'patient/dashboard/current' : isDoctor ? 'doctor/dashboard/current' : 'admin'"
+          mat-menu-item>
+          <mat-icon class="login-icon">account_circle </mat-icon>
+          Contul meu
+        </a>
+        <button mat-menu-item (click)="onLogOut()">
+          <mat-icon class="login-icon">account_circle </mat-icon>
+          LogOut
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>

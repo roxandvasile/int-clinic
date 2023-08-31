@@ -1,0 +1,29 @@
+<div class="sections-container">
+  <section class="first-section">
+    <h1 class="title-homepage">
+      Îndrumăm spre sănătate, <br />
+      Îndrumăm spre viață
+    </h1>
+    <p class="lorem-homepage">
+      Înființate cu grijă și dedicare, clinicile noastre se angajează să va ofere îngrijire medicală de calitate
+      superioară într-un mediu prietenos și modern. Profesioniști medicali cu experiență combină cunoștințele avansate
+      cu compasiunea pentru a asigura sănătatea și binele pacienților lor.
+    </p>
+
+    <div *ngIf="!loggedUser || isPatient" class="btns">
+      <div>
+        <button id="firstBtn" mat-flat-button color="primary" (click)="onClickGetAppoinment()">
+          Fă-ți o programare | +
+        </button>
+      </div>
+
+      <div *ngIf="!loggedUser || isDoctor">
+        <button id="secondBtn" mat-flat-button color="warn" (click)="onClickManageSite()">Intră in cont</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="second-section">
+    <img src="../../../../assets/Doctors-bro.png" alt="" width="500px" height="500px" />
+  </section>
+</div>

@@ -1,0 +1,19 @@
+<div class="information">
+  <h3>Informațiile dumneavoastră:</h3>
+  <mat-card class="details-card">
+    <div class="details-card__text">
+      <h4>Nume și prenume:</h4>
+      <p class="light-text">{{ doctor?.displayName }}</p>
+      <h4>Telefon:</h4>
+      <p class="light-text">{{ doctor?.phone }}</p>
+      <h4>Email:</h4>
+      <p class="light-text">{{ doctor?.email }}</p>
+      <h4>Gen</h4>
+      <p>{{ doctor?.gender }}</p>
+      <button mat-button color="primary" (click)="openDialog()">Editează Informații</button>
+    </div>
+    <div class="details-card__img">
+      <img src="{{ doctor?.imageUrl }}" alt="imaginea de profil a doctorului" />
+    </div>
+  </mat-card>
+</div>

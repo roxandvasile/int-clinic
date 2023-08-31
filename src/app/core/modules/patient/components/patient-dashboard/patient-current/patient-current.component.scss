@@ -1,0 +1,10 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-card {
+  width: auto;
+  background-color: white;
+  margin-bottom: 25px;
+}

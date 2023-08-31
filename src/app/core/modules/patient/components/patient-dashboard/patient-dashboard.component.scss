@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: 92%;
+  justify-content: space-between;
+
+  &__cards {
+    display: flex;
+    gap: 50px;
+    width: 100%;
+
+    & h3 {
+      flex-basis: 100%;
+    }
+  }
+
+  &__side-nav {
+    background-color: #e1ebee;
+    padding: 2%;
+    width: auto;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      margin-top: 15px;
+
+      & a {
+        background-color: white;
+        width: 230px;
+        
+        &.activeNav {
+          color: rgb(63,81,181);
+        }
+      }
+
+    }
+  }
+
+  &__content {
+    padding: 2%;
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    &__header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: auto;
+
+      & button {
+        background-color: rgb(24, 155, 24);
+        color: white;
+      }
+    }
+  }
+}

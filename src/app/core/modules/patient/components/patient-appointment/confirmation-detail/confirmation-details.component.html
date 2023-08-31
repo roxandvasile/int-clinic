@@ -1,0 +1,71 @@
+<section class="container">
+  <main class="article-container">
+    <div class="left-article">
+      <article *ngIf="appointment.clinic" class="article-information">
+        <h3>Informații clinică:</h3>
+        <mat-card class="details-card">
+          <h4>{{ appointment.clinic.name }}</h4>
+          <p class="light-text">{{ appointment.clinic.address }}</p>
+          <p class="light-text">{{ appointment.clinic.phone }}</p>
+        </mat-card>
+      </article>
+      <article *ngIf="appointment.patientData" class="article-information">
+        <h3>Informații pacient:</h3>
+        <mat-card class="details-card">
+          <div class="details">
+            <h4>Nume:</h4>
+            <p class="light-text">{{ appointment.patientData.displayName }}</p>
+          </div>
+          <div class="details">
+            <h4>Telefon:</h4>
+            <p class="light-text">{{ appointment.patientData.phone }}</p>
+          </div>
+          <div class="details">
+            <h4>Email:</h4>
+            <p class="light-text">{{ appointment.patientData.email }}</p>
+          </div>
+          <div *ngIf="appointment.extraDetails" class="details extra-details">
+            <div>
+              <h4>Informații suplimentare:</h4>
+              <p class="light-text">{{ appointment.extraDetails.comment }}</p>
+            </div>
+            <div>
+              <h4>Fisiere încărcate:</h4>
+              <p class="light-text">
+                <a [href]="appointment.extraDetails.file.url">{{ appointment.extraDetails.file.name }}</a>
+              </p>
+            </div>
+          </div>
+        </mat-card>
+      </article>
+    </div>
+    <article class="article-information">
+      <h3>Informații programare:</h3>
+      <mat-card class="details-card right-article">
+        <div *ngIf="appointment.doctor" class="details">
+          <h4>Doctor:</h4>
+          <p class="light-text">{{ appointment.doctor.firstName + ' ' + appointment.doctor.lastName }}</p>
+        </div>
+        <div *ngIf="appointment.specialty" class="details">
+          <h4>Specializare:</h4>
+          <p class="light-text">{{ appointment.specialty.name }}</p>
+        </div>
+        <div class="details">
+          <h4>Data:</h4>
+          <p class="light-text">{{ dateSelected }}</p>
+        </div>
+        <div class="details">
+          <h4>Ora:</h4>
+          <p class="light-text">{{ appointment.timeSlot }}</p>
+        </div>
+        <mat-card *ngIf="appointment.service" class="services-details">
+          <h4>Servicii:</h4>
+          <div class="details">
+            <h4 class="light-text">{{ appointment.service.name }}</h4>
+            <p class="light-text">{{ appointment.service.price }} RON</p>
+          </div>
+        </mat-card>
+      </mat-card>
+    </article>
+  </main>
+</section>

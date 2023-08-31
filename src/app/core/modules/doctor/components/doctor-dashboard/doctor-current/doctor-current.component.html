@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="container__date">
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar
+        [(selected)]="selected"
+        (click)="onClickDate()"
+        [dateFilter]="myFilter"
+        [minDate]="currentDate"
+        [startAt]="currentDate"></mat-calendar>
+    </mat-card>
+  </div>
+</div>
+<h2>Programările tale:</h2>
+<div class="cards" *ngIf="!(appointments.length === 0)">
+  <mat-card *ngFor="let appointment of appointmentsText" class="example-card">
+    <mat-card-header>
+      <mat-card-title>Pacient: {{ appointment.patient.displayName }} </mat-card-title>
+      <mat-card-subtitle>Ora: {{ appointment.timeSlot }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><b> Telefon:</b> {{ appointment.patient.phone }}</p>
+      <p>
+        <b> {{ appointment.clinic.name }} </b> - {{ appointment.clinic.address }}
+      </p>
+      <p><b>Serviciul: </b> {{ appointment.service.name }}</p>
+      <p><b> Preț:</b> {{ appointment.service.price }}</p>
+      <p>
+        <b> Fișiere Atașate:</b
+        ><a href="{{ appointment.extraDetails.file.url }}">{{ appointment.extraDetails.file.name }}</a>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div class="cards" *ngIf="appointments.length === 0">
+  <h3>Nicio programare în data de {{ dateSelected ? localDateSelected : currentLocalDate }}</h3>
+</div>

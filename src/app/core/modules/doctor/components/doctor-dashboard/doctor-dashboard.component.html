@@ -1,0 +1,10 @@
+<mat-drawer-container class="container">
+  <mat-drawer class="container__side-nav" mode="side" opened>
+    <ul>
+      <li><a mat-stroked-button routerLink="current" routerLinkActive="activeNav">Calendar Programari </a></li>
+      <li><a mat-stroked-button routerLink="history" routerLinkActive="activeNav">Istoric Programari</a></li>
+      <li><a mat-stroked-button routerLink="details" routerLinkActive="activeNav">Informatiile Mele</a></li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content class="container__content"><router-outlet></router-outlet></mat-drawer-content>
+</mat-drawer-container>

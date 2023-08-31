@@ -1,0 +1,28 @@
+<div class="filter-container">
+  <mat-form-field id="filter">
+    <input matInput [(ngModel)]="searchedInput" placeholder="Caută..." />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
+<div class="card-container">
+  <mat-card
+    class="card-container__cards"
+    *ngFor="let doctor of doctors | filterBy: searchedInput"
+    (click)="selectedDoctor(doctor)"
+    [ngClass]="{ active: isActive(doctor) }">
+    <mat-card-header>
+      <mat-card-title>{{ doctor.firstName + ' ' + doctor.lastName }}</mat-card-title>
+    </mat-card-header>
+
+    <img mat-card-image src="{{ doctor.imageUrl }}" alt="Photo of doctor" />
+
+    <mat-card-content class="card-container__cards__description">
+      <p id="description-detail">
+        {{ doctor.description }}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<app-scroll-button></app-scroll-button>

@@ -1,0 +1,27 @@
+<main class="container">
+  <div class="container__date">
+    <mat-card class="demo-inline-calendar-card">
+      <mat-calendar
+        [(selected)]="selected"
+        (click)="onAddDate()"
+        [dateFilter]="myFilter"
+        [minDate]="currentDate"
+        [startAt]="currentDate"></mat-calendar>
+    </mat-card>
+    <p>Data selectată: {{ dateSelected }}</p>
+  </div>
+  <div class="container__time">
+    <h3>Ore disponibile</h3>
+    <div *ngIf="selected" class="container__time__buttons">
+      <button
+        [ngClass]="{ active: isActive(time) }"
+        (click)="onAddTime(time)"
+        class="container__time__buttons__btn"
+        *ngFor="let time of timeSlots"
+        [ngClass]="{ active: isActive(time) }"
+        mat-stroked-button>
+        {{ time }}
+      </button>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,25 @@
+.title-homepage {
+    font-size: 35px;
+    line-height: 45px;
+    color: gray;
+}
+
+.sections-container {
+    display: flex;
+    align-items: center;
+    padding: 5rem;
+}
+
+.lorem-homepage {
+    width: 70%;
+    line-height: 25px;
+}
+
+#firstBtn, #secondBtn {
+    margin-right: 50px;
+    border-radius: 0;
+}
+
+.btns {
+    display: flex;
+}

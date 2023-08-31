@@ -1,0 +1,66 @@
+#error{
+    text-align: center;
+    color: red;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+h1{
+    text-align: center;
+    margin: 80px 0 40px 0;
+
+}
+
+hr.divider.sign-in:after {
+    position: relative;
+    top: -10px;
+    padding-right: 8px;
+    padding-left: 8px;
+    background-color: white;
+    content: "sau login cu email-ul";
+}
+
+hr.divider {
+    height: 1px;
+    margin: 30px 0;
+    overflow: visible;
+    border: none;
+    background-color: black;
+    color: #6e6d7a;
+    text-align: center;
+    width: 100%;
+}
+
+.form-login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 30rem;
+}
+
+.login-full-width{
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+#googleLogin{
+    width: 100%
+}
+
+.forgotPassword{
+    text-align: right;
+}
+
+#loginBtn{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+

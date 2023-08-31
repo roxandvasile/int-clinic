@@ -1,0 +1,42 @@
+<section class="page-container">
+  <h1>Conectează-te in contul tău</h1>
+
+  <div class="form-login-container">
+    <button id="googleLogin" mat-raised-button color="warn" (click)="onLoginWithGoogle()">Google Login</button>
+
+    <hr class="divider sign-in" />
+
+    <form class="example-form" [formGroup]="loginForm">
+      <p id="error">{{ error.message }}</p>
+
+      <mat-form-field class="login-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="nume@mail.com" required formControlName="email" />
+        <mat-icon matSuffix>alternate_email</mat-icon>
+        <mat-error *ngIf="loginForm.get('email')?.hasError('pattern')">Email Invalid</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="login-full-width">
+        <mat-label>Parola</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
+        <button
+          type="button"
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <div class="forgotPassword">
+        <a routerLink="/forgot-password">Ai uitat parola?</a>
+      </div>
+
+      <button mat-raised-button id="loginBtn" color="primary" (click)="onLogin()">Login</button>
+      <span id="signUpLink">Nu ai un cont? <a routerLink="/sign-up">Signup</a></span>
+    </form>
+  </div>
+</section>
+<router-outlet></router-outlet>
