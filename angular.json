@@ -28,7 +28,7 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets", "/docs/assets"],
+            "assets": ["src/favicon.ico", "src/assets", "/docs/assets/Doctors-bro.png"],
             "styles": ["@angular/material/prebuilt-themes/indigo-pink.css", "src/styles.scss"],
             "scripts": []
           },
