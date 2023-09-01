@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "pre-commit": "lint-staged"
   },
-  "private": true,
+  "private": false,
   "dependencies": {
     "@angular/animations": "^16.1.0",
     "@angular/cdk": "16.1.5",
