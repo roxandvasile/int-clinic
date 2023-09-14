@@ -12,7 +12,7 @@ const ROUTES: Routes = [
     component: UserComponent,
   },
   {
-    path: 'int-clinic/login',
+    path: 'login',
     component: UserLoginComponent,
   },
   {
