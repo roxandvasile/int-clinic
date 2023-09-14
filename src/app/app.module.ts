@@ -27,7 +27,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationBarComponent } from './core/components/navigation-bar/navigation-bar.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent, ConfirmationDialogComponent, HomePageComponent, NavigationBarComponent],
@@ -54,12 +53,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     UserRoutingModule,
     MatMenuModule,
   ],
-  providers: [
-    AuthService,
-    DoctorService,
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
-  ],
+  providers: [AuthService, DoctorService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
