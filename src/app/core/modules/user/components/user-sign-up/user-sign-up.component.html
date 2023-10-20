@@ -1,13 +1,15 @@
 <div class="form-container">
   <form class="example-form" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
     <div class="imageContainer">
-      <img *ngIf="patientImage" [src]="patientImage" alt="Imagine Doctor Neincarcata" width="50%" height="50%" />
-      <label for="fileInput" class="fileLabel"> Incarca o imagine </label>
+      <img *ngIf="patientImage" [src]="patientImage" alt="Patient Image" width="50%" height="50%" />
+      <label for="fileInput" class="fileLabel"> Încarcă o imagine </label>
       <input type="file" accept=".png,.jpg" (change)="uploadImage($event)" formControlName="imageUrl" id="fileInput" />
     </div>
+
     <div *ngIf="error.message" class="error-message">
       {{ error.message }}
     </div>
+
     <mat-form-field class="example-full-width">
       <mat-label>Nume</mat-label>
       <input matInput formControlName="lastName" placeholder="Nume" />
@@ -62,4 +64,5 @@
     </div>
   </form>
 </div>
+
 <router-outlet></router-outlet>

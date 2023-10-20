@@ -1,12 +1,12 @@
-<section class="page-container">
-  <h1>Conectează-te in contul tău</h1>
+<div class="page-container">
+  <h1>Conectează-te în contul tău</h1>
 
-  <div class="form-login-container">
+  <div>
     <button id="googleLogin" mat-raised-button color="warn" (click)="onLoginWithGoogle()">Google Login</button>
 
     <hr class="divider sign-in" />
 
-    <form class="example-form" [formGroup]="loginForm">
+    <form [formGroup]="loginForm">
       <p id="error">{{ error.message }}</p>
 
       <mat-form-field class="login-full-width">
@@ -17,7 +17,7 @@
       </mat-form-field>
 
       <mat-form-field class="login-full-width">
-        <mat-label>Parola</mat-label>
+        <mat-label>Parolă</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" />
         <button
           type="button"
@@ -35,8 +35,9 @@
       </div>
 
       <button mat-raised-button id="loginBtn" color="primary" (click)="onLogin()">Login</button>
-      <span id="signUpLink">Nu ai un cont? <a routerLink="/sign-up">Signup</a></span>
+      <span>Nu ai un cont? <a routerLink="/sign-up">Signup</a></span>
     </form>
   </div>
-</section>
-<router-outlet></router-outlet>
+
+  <router-outlet></router-outlet>
+</div>
