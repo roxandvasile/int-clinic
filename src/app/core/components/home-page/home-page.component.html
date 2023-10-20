@@ -13,11 +13,13 @@
 
     <div *ngIf="!loggedUser || isPatient" class="btns">
       <div>
-        <button id="appointmentBtn" mat-flat-button (click)="onClickGetAppoinment()">Fă-ți o programare | +</button>
+        <button id="appointmentBtn" mat-flat-button color="primary" (click)="onClickGetAppoinment()">
+          Fă-ți o programare | +
+        </button>
       </div>
 
       <div *ngIf="!loggedUser || isDoctor">
-        <button id="loginBtn" mat-flat-button (click)="onClickManageSite()">Intră in cont</button>
+        <button id="loginBtn" mat-flat-button color="warn" (click)="onClickManageSite()">Intră in cont</button>
       </div>
     </div>
   </div>
