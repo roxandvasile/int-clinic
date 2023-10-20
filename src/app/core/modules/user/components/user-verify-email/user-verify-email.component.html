@@ -1,16 +1,17 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Îți mulțumim!</h3>
-      <div class="formGroup">
-        <p class="text-center">
-          Cerere îregistrata cu succes.<br />Vă rugăm să vă verificați e-mailul pentru a vă reseta parola.
-        </p>
-      </div>
+<div class="container">
+  <div>
+    <h3>Îți mulțumim!</h3>
+
+    <div>
+      <p class="text-center">
+        Cerere a fost înregistrată cu succes.<br />Vă rugăm să vă verificați e-mailul pentru a vă reseta parola.
+      </p>
     </div>
-    <div class="redirectToLogin">
+
+    <div>
       <button mat-raised-button color="primary" (click)="onRouteLogin()">Înapoi la Login</button>
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>
